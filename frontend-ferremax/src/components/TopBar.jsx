@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ModalLogout from "../components/ModalLogout";
+
 
 const TopBar = () => {
   return (
@@ -20,8 +22,8 @@ const TopBar = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-                Admin <i className="fa fa-user-cog"></i>
+              <span className="mr-2 d-none d-lg-inline text-gray-600 small" id="NameUser">
+                <i className="fa fa-user-cog"></i> Admin
               </span>
               {/* <img
                 className="img-profile rounded-circle"
@@ -40,31 +42,13 @@ const TopBar = () => {
                 data-target="#logoutModal"
               >
                 <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Salir
+                Cerrar sesión
               </Link>
             </div>
           </li>
         </ul>
       </nav>
-      {/* <!-- Logout Modal--> */}
-      <div className="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">¿Desea Salir del Sistema?</h5>
-              <button className="close" type="button" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <div className="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
-            <div className="modal-footer">
-              <button className="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-              <a className="btn btn-warning" href="/login">Cerrar sesión</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ModalLogout />
     </React.Fragment>
   );
 };
