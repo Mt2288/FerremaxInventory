@@ -1,6 +1,7 @@
 import React from 'react'
 import SideBar from '../../components/SideBar'
 import TopBar from '../../components/TopBar'
+import UsersTable from '../../components/UsersTable'
 const Users = () => {
     return (
         <div id="wrapper">
@@ -23,9 +24,13 @@ const Users = () => {
                     <div className="container-fluid">
 
                         {/* <!-- Page Heading --> */}
-                        <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 className="h3 mb-0 text-gray-800">Usuarios</h1>
+                        <div class="d-sm-flex align-items-center justify-content-left mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">
+                                Usuarios
+                            </h1>
                         </div>
+
+                        <UsersTable />
 
                         {/* Content page */}
                     </div>
