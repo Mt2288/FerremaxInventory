@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ModalLogout from "../components/ModalLogout";
 
 const SideBar = () => {
   return (
@@ -31,7 +32,7 @@ const SideBar = () => {
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/users" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
+            aria-expanded="true" aria-controls="collapseTwo" activeClassName="text-white">
             <i className="fas fa-users-cog"></i>
             <span>Usuarios</span>
           </Link>
@@ -49,11 +50,23 @@ const SideBar = () => {
         <li className="nav-item">
           <Link className="nav-link collapsed" to="/products" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
-            <i className="fas fa-fw fa-cog"></i>
+            <i class="fas fa-toolbox"></i>
             <span>Productos</span>
           </Link>
         </li>
+        {/* <!-- Divider --> */}
+        <hr className="sidebar-divider" />
+        {/* <!-- Nav Item - Pages Collapse Menu --> */}
+        <li className="nav-item">
+          <Link className="nav-link collapsed" to="#"
+            aria-expanded="true" aria-controls="collapsePages" data-toggle="modal"
+            data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Cerrar sesión</span>
+          </Link>
+        </li>
       </ul>
+      <ModalLogout />
     </React.Fragment>
   );
 };
