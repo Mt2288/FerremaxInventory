@@ -26,13 +26,13 @@ const Home = () => {
 
               {/* <!-- Page Heading --> */}
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 className="h3 mb-0 text-gray-800">Alcance e integrantes del proyecto</h1>
+                <h1 className="h3 mb-0 text-gray-800">Integrantes del proyecto</h1>
               </div>
 
               {/* Content page */}
               {/* <!-- Content Row --> */}
               <div class="row">
-                <div class="col-lg-6 mb-4">
+                {/* <div class="col-lg-6 mb-4">
                   <div class="card shadow-lg border-0 rounded-lg">
                     <div class="card-header">
                       <h4
@@ -51,7 +51,7 @@ const Home = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div class="col-6">
                   <div class="card shadow-lg border-0 rounded-lg">
                     <div class="card-header">
