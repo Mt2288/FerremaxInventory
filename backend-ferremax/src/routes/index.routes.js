@@ -10,7 +10,7 @@ router.post('/productos', async (req, res) => {
     try {
         const product = new Products(req.body);
         await product.save();
-        res.json({ status: 'producto guardado' });
+        res.json({ status: 'Producto guardado' });
     } catch (error) {
         res.send(error);
     }

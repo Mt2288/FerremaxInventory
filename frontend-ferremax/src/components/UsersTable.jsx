@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import React, { useState } from 'react';
 
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
+import { Link } from "react-router-dom";
 
 const UsersTable = () => {
     const [user, setUser] = useState([])
@@ -79,11 +80,11 @@ const UsersTable = () => {
                                                 <td>{user.email}</td>
                                                 <td>{user.typeusername}</td>
                                                 <td>
-                                                    <button
-                                                        class="btn btn-sm btn-primary"
+                                                    <Link
+                                                        class="btn btn-sm btn-primary" to="/edit-user"
                                                     >
                                                         <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-                                                    </button>&nbsp;
+                                                    </Link>&nbsp;
                                                     <button
                                                         onClick={() => deleteTask(user._id)}
                                                         class="btn btn-danger btn-sm"
