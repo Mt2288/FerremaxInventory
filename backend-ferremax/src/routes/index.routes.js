@@ -77,7 +77,7 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         if (!email || !password) {
-            res.status(400).json('User and password required')
+            res.status(400).json('Email and password required')
         }
         let token = await authService.login(req.body)
         if (token) {

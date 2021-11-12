@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 //ESQUEMA DE BASE DE DATOS PRODUCTOS
 const ProductSchema = new Schema({
-    code: { type: String, required: true },
+    code: { type: String, required: true, unique: [true, "Éste código ya se encuentra registrado"] },
     name: { type: String, required: true },
     marca: { type: String, required: true },
     category: { type: String, required: true },
@@ -13,5 +13,4 @@ const ProductSchema = new Schema({
 });
 
 //EXPORTACION DEL MODULO
-
 module.exports = mongoose.model('products', ProductSchema);

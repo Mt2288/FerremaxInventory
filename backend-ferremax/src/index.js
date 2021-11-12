@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extented: false }));
 //rutas aqui se colocan las rutas de la pagina web
-app.use('/', indexRoutes);
+app.use('/api', indexRoutes);
 
 
 //static files archivos que van en la carpeta public html css javascript que son la pagina inicial de la pagina web
