@@ -1,7 +1,8 @@
 import React from "react";
 import SideBar from '../../components/SideBar'
 import TopBar from '../../components/TopBar'
-
+import ProductTable from '../../components/ProductTable'
+import FormProductos from '../../components/FormProductos'
 const Product = () => {
   return (
     <div id="wrapper">
@@ -24,10 +25,12 @@ const Product = () => {
           <div className="container-fluid">
 
             {/* <!-- Page Heading --> */}
-            <div className="d-sm-flex align-items-center justify-content-between mb-4">
+            <div className="d-sm-flex align-items-center justify-content-left mb-4">
               <h1 className="h3 mb-0 text-gray-800">Productos</h1>
+              <button>Agregar</button>              
             </div>
-
+            <ProductTable />
+            <FormProductos />
             {/* Content page */}
           </div>
           {/* <!-- /.container-fluid --> */}
