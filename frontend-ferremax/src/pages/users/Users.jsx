@@ -2,6 +2,7 @@ import React from 'react'
 import SideBar from '../../components/SideBar'
 import TopBar from '../../components/TopBar'
 import UsersTable from '../../components/UsersTable'
+import FormUsuario from '../../components/FormUsuarios'
 const Users = () => {
     return (
         <div id="wrapper">
@@ -28,9 +29,12 @@ const Users = () => {
                             <h1 class="h3 mb-0 text-gray-800">
                                 Usuarios
                             </h1>
+                            <button > Agregar</button>
                         </div>
-
+                        
                         <UsersTable />
+                        <FormUsuario />
+
 
                         {/* Content page */}
                     </div>
