@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 //ESQUEMA DE BASE DE DATOS PRODUCTOS
 const ProductSchema = new Schema({
-    code: { type: String, required: true, unique: [true, "Éste código ya se encuentra registrado"] },
+    code: { type: String, required: true, maxlength: [13], unique: [true, "Éste código ya se encuentra registrado"] },
     name: { type: String, required: true },
     marca: { type: String, required: true },
     category: { type: String, required: true },

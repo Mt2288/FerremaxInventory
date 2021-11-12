@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-
-import  swal  from 'sweetalert';
+import { Link } from "react-router-dom";
+import swal from 'sweetalert2';
 import React, { useState } from 'react';
 
 
@@ -16,37 +16,38 @@ const ProductTable = () => {
             .then((res) => res.json())
             .then((data) => {
                 setUser(data);
-            });        
+            });
     }
 
     const deleteTask = (id) => {
         swal({
             title: "Estas seguro?",
             buttons: ["No", "Sí, bórralo!"]
-          })
-          .then((result) => {
-            if (result) {
-              fetch("https://ferremax.herokuapp.com/productos/" + id, {
-                method: "DELETE",
-                headers: {
-                  Accept: "application/json",
-                  "Content-type": "application/json",
-                },
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                //   useEffect();
-                  if (data.status === "eliminado") {
-                      swal("Se borro el producto", {
-                      icon: "success",
-                    },
-                    // this.useEffect()
-                    )};
-                    fetchProducts()
-                //   this.$router.push("/productos");
-                });
-            }
-          });                
+        })
+            .then((result) => {
+                if (result) {
+                    fetch("https://ferremax.herokuapp.com/productos/" + id, {
+                        method: "DELETE",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-type": "application/json",
+                        },
+                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            //   useEffect();
+                            if (data.status === "eliminado") {
+                                swal("Se borro el producto", {
+                                    icon: "success",
+                                },
+                                    // this.useEffect()
+                                )
+                            };
+                            fetchProducts()
+                            //   this.$router.push("/productos");
+                        });
+                }
+            });
     }
 
 
@@ -87,17 +88,16 @@ const ProductTable = () => {
                                                     >
                                                         {user.status}</span>
                                                     <span v-else class="badge badge-pill badge-danger">
-                                                        {user.status}</span> 
+                                                        {user.status}</span>
                                                 </td>
                                                 <td>
-                                                    <button                                                                                                                                                                                                             
+                                                    <Link class="btn btn-sm btn-primary" to="/edit-product"  >
 
-                                                        class="btn btn-sm btn-primary"
-                                                    >
+
                                                         <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-                                                    </button>&nbsp;
+                                                    </Link>&nbsp;
                                                     <button
-                                                        onClick={ () => deleteTask(user._id) }
+                                                        onClick={() => deleteTask(user._id)}
                                                         class="btn btn-danger btn-sm"
                                                         title="Eliminar">
                                                         <i class="far fa-trash-alt" aria-hidden="true"></i>

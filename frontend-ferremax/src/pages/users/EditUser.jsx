@@ -1,9 +1,7 @@
-import React from 'react'
-import SideBar from '../../components/SideBar'
-import TopBar from '../../components/TopBar'
-import UsersTable from '../../components/UsersTable'
-
-const Users = () => {
+import SideBar from "../../components/SideBar";
+import TopBar from "../../components/TopBar";
+import FormUsuario from '../../components/FormUsuarios'
+const EditUser = () => {
     return (
         <div id="wrapper">
 
@@ -27,12 +25,11 @@ const Users = () => {
                         {/* <!-- Page Heading --> */}
                         <div class="d-sm-flex align-items-center justify-content-left mb-4">
                             <h1 class="h3 mb-0 text-gray-800">
-                                Usuarios
+                                Actualizar usuario
                             </h1>
                         </div>
-                        
-                        <UsersTable />
-                        
+
+                        <FormUsuario />
 
 
                         {/* Content page */}
@@ -43,7 +40,7 @@ const Users = () => {
             </div>
             {/* <!-- End of Content Wrapper --> */}
         </div>
-    )
+    );
 }
 
-export default Users
+export default EditUser;

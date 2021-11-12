@@ -49,111 +49,111 @@ const FormUsuario = () => {
     <React.Fragment>
 
       <div>
-    <form onSubmit={addTask}>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Identificacion</label>
-        <input
-        name="identificacion"
-        type="text"
-        class="form-control" 
-        value={user.identificacion}
-        onChange={handleInputChange}
-    
-        placeholder="Numero identificacion" />
+        <form onSubmit={addTask}>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Identificacion</label>
+            <input
+              name="identificacion"
+              type="number"
+              class="form-control"
+              value={user.identificacion}
+              onChange={handleInputChange}
 
+              placeholder="Número de identificacion" />
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nombre</label>
+            <input
+              name="name"
+              type="text"
+              class="form-control"
+              value={user.name}
+              onChange={handleInputChange}
+              aria-describedby="emailHelp"
+              placeholder="Nombre" />
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Apellido</label>
+            <input
+              name="lastname"
+              type="text"
+              class="form-control"
+              value={user.lastname}
+              onChange={handleInputChange}
+              aria-describedby="emailHelp"
+              placeholder="Apellido" />
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Telefono</label>
+            <input
+              name="telephone"
+              type="text"
+              class="form-control"
+              value={user.telephone}
+              onChange={handleInputChange}
+              aria-describedby="emailHelp"
+              placeholder="Telefono" />
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input
+              name="email"
+              type="email"
+              class="form-control"
+              value={user.email}
+              onChange={handleInputChange}
+              aria-describedby="emailHelp"
+              placeholder="Email" />
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nombre usuario</label>
+            <input
+              name="typeusername"
+              type="text"
+              class="form-control"
+              value={user.typeusername}
+              onChange={handleInputChange}
+              aria-describedby="emailHelp"
+              placeholder="Nombre de usuario" />
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Estado</label>
+            <select
+              name="status"
+              type="text"
+              class="form-control"
+              value={user.status}
+              onChange={handleInputChange}
+              aria-describedby="emailHelp"
+              placeholder="Status" >
+              <option value="Activo">Activo</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Contraseña</label>
+            <input
+              name="password"
+              type="password"
+              class="form-control"
+              value={user.password}
+              onChange={handleInputChange}
+              aria-describedby="emailHelp"
+              placeholder="Contraseña" />
+
+          </div>
+
+
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Nombre</label>
-        <input
-        name="name"
-        type="text" 
-        class="form-control" 
-        value={user.name}
-        onChange={handleInputChange}
-        aria-describedby="emailHelp" 
-        placeholder="Nombre" />
-
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Apellido</label>
-        <input
-        name="lastname"
-        type="text" 
-        class="form-control" 
-        value={user.lastname}
-        onChange={handleInputChange}
-        aria-describedby="emailHelp" 
-        placeholder="Apellido" />
-
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Telefono</label>
-        <input
-        name="telephone"        
-        type="text" 
-        class="form-control" 
-        value={user.telephone}
-        onChange={handleInputChange}
-        aria-describedby="emailHelp" 
-        placeholder="Telefono" />
-
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
-        <input
-        name="email"         
-        type="email" 
-        class="form-control" 
-        value={user.email}
-        onChange={handleInputChange}
-        aria-describedby="emailHelp" 
-        placeholder="Email" />
-
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Nombre usuario</label>
-        <input
-        name="typeusername"         
-        type="text" 
-        class="form-control" 
-        value={user.typeusername}
-        onChange={handleInputChange}
-        aria-describedby="emailHelp" 
-        placeholder="Nombre de usuario" />
-
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Status</label>
-        <select
-        name="status"         
-        type="text" 
-        class="form-control" 
-        value={user.status}
-        onChange={handleInputChange}
-        aria-describedby="emailHelp" 
-        placeholder="Status" >
-        <option value="Activo">Activo</option>
-        <option value="Inactivo">Inactivo</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Contraseña</label>
-        <input
-        name="password"        
-        type="password" 
-        class="form-control" 
-        value={user.password}
-        onChange={handleInputChange}
-        aria-describedby="emailHelp" 
-        placeholder="Contraseña" />
-
-      </div>
-
-
-
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    </div>
 
     </React.Fragment>
   );

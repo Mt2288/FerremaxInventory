@@ -2,7 +2,6 @@ import React from "react";
 import SideBar from '../../components/SideBar'
 import TopBar from '../../components/TopBar'
 import ProductTable from '../../components/ProductTable'
-import FormProductos from '../../components/FormProductos'
 const Product = () => {
   return (
     <div id="wrapper">
@@ -26,11 +25,12 @@ const Product = () => {
 
             {/* <!-- Page Heading --> */}
             <div className="d-sm-flex align-items-center justify-content-left mb-4">
-              <h1 className="h3 mb-0 text-gray-800">Productos</h1>
-              <button>Agregar</button>              
+              <h1 className="h3 mb-0 text-gray-800">Productos &nbsp;
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormProducto"><i class="fas fa-plus-circle" aria-hidden="true"></i> Nuevo </button>
+              </h1>
+
             </div>
             <ProductTable />
-            <FormProductos />
             {/* Content page */}
           </div>
           {/* <!-- /.container-fluid --> */}
