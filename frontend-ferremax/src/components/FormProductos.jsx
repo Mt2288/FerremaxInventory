@@ -46,15 +46,13 @@ const FormProductos = () => {
 
   return (
     <React.Fragment>
-
-      <div>
+      <div className="col-lg-6 pb-4">
         <form onSubmit={addTask}>
           <div class="form-group">
-            <label for="exampleInputEmail1">Codigo</label>
+            <label for="exampleInputEmail1">Código</label>
             <input
               name="code"
               type="text"
-              class="form-control"
               value={user.code}
               onChange={handleInputChange}
 
@@ -66,7 +64,6 @@ const FormProductos = () => {
             <input
               name="name"
               type="text"
-              class="form-control"
               value={user.name}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -78,7 +75,6 @@ const FormProductos = () => {
             <input
               name="marca"
               type="text"
-              class="form-control"
               value={user.marca}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -90,7 +86,6 @@ const FormProductos = () => {
             <input
               name="category"
               type="text"
-              class="form-control"
               value={user.category}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -102,11 +97,10 @@ const FormProductos = () => {
             <input
               name="stock"
               type="number"
-              class="form-control"
               value={user.stock}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
-              placeholder="Email" />
+              placeholder="Stock" />
 
           </div>
           <div class="form-group">
@@ -114,7 +108,6 @@ const FormProductos = () => {
             <input
               name="precio"
               type="number"
-              class="form-control"
               value={user.precio}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -122,11 +115,9 @@ const FormProductos = () => {
 
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Status</label>
+            <label for="status">Estado</label>
             <select
               name="status"
-              type="text"
-              class="form-control"
               value={user.status}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -136,7 +127,7 @@ const FormProductos = () => {
             </select>
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="submit" value="Actualizar producto" />
         </form>
       </div>
 

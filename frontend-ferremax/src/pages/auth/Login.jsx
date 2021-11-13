@@ -8,7 +8,7 @@ const Login = () => {
                 <img src={logoR} alt="Logo ferremax" className="logo" />
                 <h1 className="tittle">INICIAR SESIÓN</h1>
                 <p>Ingrese al sistema si ya está registrado.</p>
-                <form action="">
+                <form>
                     <label htmlFor="">Correo electrónico</label>
                     <input type="email" name="" id="" />
                     <span className="msg-error"></span>
@@ -20,8 +20,7 @@ const Login = () => {
                 </form>
 
                 <span className="text-footer"
-                >¿Aún no te has registrado? <Link to="/">Regístrate</Link></span
-                >
+                >¿Aún no te has registrado? <Link to="/">Regístrate</Link></span>
             </div>
 
             <div className="ctn-image">

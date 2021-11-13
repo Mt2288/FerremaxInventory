@@ -8,9 +8,9 @@ const UserSchema = new Schema({
     telephone: String,
     email: {
         type: String,
-        unique: [true,"Éste email ya se encuentra registrado."],
+        unique: [true, "Éste email ya se encuentra registrado."],
     },
-    status: String,
+    status: { type: String, default: "Activo" },
     password: String
 })
 
