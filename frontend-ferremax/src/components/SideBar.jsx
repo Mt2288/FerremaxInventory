@@ -5,10 +5,15 @@ import ModalLogout from "../components/ModalLogout";
 const SideBar = () => {
   return (
     <React.Fragment>
-      <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
+      <ul
+        className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
         {/* <!-- Sidebar - Brand --> */}
-        <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/dashboard">
+        <Link
+          className="sidebar-brand d-flex align-items-center justify-content-center"
+          to="/dashboard"
+        >
           <div className="sidebar-brand-icon rotate-n-15">
             <i className="fas fa-tools"></i>
           </div>
@@ -18,21 +23,27 @@ const SideBar = () => {
         <li className="nav-item active">
           <Link className="nav-link" to="/dashboard">
             <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></Link>
+            <span>Dashboard</span>
+          </Link>
         </li>
 
         {/* <!-- Divider --> */}
         <hr className="sidebar-divider" />
 
         {/* <!-- Heading --> */}
-        <div className="sidebar-heading">
-          Gestionar Usuarios
-        </div>
+        <div className="sidebar-heading">Gestionar Usuarios</div>
 
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
         <li className="nav-item">
-          <Link className="nav-link collapsed" to="/users" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo" activeClassName="text-white">
+          <Link
+            className="nav-link collapsed"
+            to="/users"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+            activeclassname="text-white"
+          >
             <i className="fas fa-users-cog"></i>
             <span>Usuarios</span>
           </Link>
@@ -42,14 +53,18 @@ const SideBar = () => {
         <hr className="sidebar-divider" />
 
         {/* <!-- Heading --> */}
-        <div className="sidebar-heading">
-          Gestionar productos
-        </div>
+        <div className="sidebar-heading">Gestionar productos</div>
 
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
         <li className="nav-item">
-          <Link className="nav-link collapsed" to="/products" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
+          <Link
+            className="nav-link collapsed"
+            to="/products"
+            data-toggle="collapse"
+            data-target="#collapsePages"
+            aria-expanded="true"
+            aria-controls="collapsePages"
+          >
             <i class="fas fa-toolbox"></i>
             <span>Productos</span>
           </Link>
@@ -58,9 +73,14 @@ const SideBar = () => {
         <hr className="sidebar-divider" />
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
         <li className="nav-item">
-          <Link className="nav-link collapsed" to="#"
-            aria-expanded="true" aria-controls="collapsePages" data-toggle="modal"
-            data-target="#logoutModal">
+          <Link
+            className="nav-link collapsed"
+            to="#"
+            aria-expanded="true"
+            aria-controls="collapsePages"
+            data-toggle="modal"
+            data-target="#logoutModal"
+          >
             <i class="fas fa-sign-out-alt"></i>
             <span>Cerrar sesión</span>
           </Link>

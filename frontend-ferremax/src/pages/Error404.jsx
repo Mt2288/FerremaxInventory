@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 const Error404 = () => {
   return (
-    <React.Fragment >
+    <React.Fragment>
       {/* <!-- 404 Error Text --> */}
-      <div class="text-center" id="error404">
-        <div class="error mx-auto" data-text="404">
+      <div className="text-center" id="error404">
+        <div className="error mx-auto" data-text="404">
           404
         </div>
-        <p class="lead text-gray-800 mb-5">Pagina No Encontrada</p>
-        <p class="text-gray-500 mb-0">
+        <p className="lead text-gray-800 mb-5">Pagina No Encontrada</p>
+        <p className="text-gray-500 mb-0">
           La URL solicitada no se encontró en este servidor.
         </p>
         <Link to="/dashboard">&larr; Regresar al sistema</Link>
