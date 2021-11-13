@@ -48,14 +48,13 @@ const FormUsuario = () => {
   return (
     <React.Fragment>
 
-      <div>
+      <div className="col-lg-6 pb-4">
         <form onSubmit={addTask}>
           <div class="form-group">
             <label for="exampleInputEmail1">Identificacion</label>
             <input
               name="identificacion"
               type="number"
-              class="form-control"
               value={user.identificacion}
               onChange={handleInputChange}
 
@@ -67,7 +66,6 @@ const FormUsuario = () => {
             <input
               name="name"
               type="text"
-              class="form-control"
               value={user.name}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -79,7 +77,6 @@ const FormUsuario = () => {
             <input
               name="lastname"
               type="text"
-              class="form-control"
               value={user.lastname}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -91,7 +88,6 @@ const FormUsuario = () => {
             <input
               name="telephone"
               type="text"
-              class="form-control"
               value={user.telephone}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -103,7 +99,6 @@ const FormUsuario = () => {
             <input
               name="email"
               type="email"
-              class="form-control"
               value={user.email}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -111,23 +106,10 @@ const FormUsuario = () => {
 
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Nombre usuario</label>
-            <input
-              name="typeusername"
-              type="text"
-              class="form-control"
-              value={user.typeusername}
-              onChange={handleInputChange}
-              aria-describedby="emailHelp"
-              placeholder="Nombre de usuario" />
-
-          </div>
-          <div class="form-group">
             <label for="exampleInputEmail1">Estado</label>
             <select
               name="status"
               type="text"
-              class="form-control"
               value={user.status}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -136,22 +118,7 @@ const FormUsuario = () => {
               <option value="Inactivo">Inactivo</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Contraseña</label>
-            <input
-              name="password"
-              type="password"
-              class="form-control"
-              value={user.password}
-              onChange={handleInputChange}
-              aria-describedby="emailHelp"
-              placeholder="Contraseña" />
-
-          </div>
-
-
-
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="submit" value="Actualizar usuario" />
         </form>
       </div>
 

@@ -1,55 +1,26 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import swal from 'sweetalert2';
-import React, { useState } from 'react';
-
+/* import swal from 'sweetalert2'; */
+import axios from "axios";
 
 const ProductTable = () => {
-    const [user, setUser] = useState([])
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetchProducts()
-    }, [])
+        fetchProducts();
+    }, []);
 
     const fetchProducts = () => {
-        fetch("https://ferremax.herokuapp.com/productos")
-            .then((res) => res.json())
-            .then((data) => {
-                setUser(data);
+        console.log("Obtener usuarios");
+        axios
+            .get("https://ferremax.herokuapp.com/productos")
+            .then((res) => {
+                setProducts(res.data);
+            })
+            .catch((error) => {
+                console.log(error);
             });
-    }
-
-    const deleteTask = (id) => {
-        swal({
-            title: "Estas seguro?",
-            buttons: ["No", "Sí, bórralo!"]
-        })
-            .then((result) => {
-                if (result) {
-                    fetch("https://ferremax.herokuapp.com/productos/" + id, {
-                        method: "DELETE",
-                        headers: {
-                            Accept: "application/json",
-                            "Content-type": "application/json",
-                        },
-                    })
-                        .then((res) => res.json())
-                        .then((data) => {
-                            //   useEffect();
-                            if (data.status === "eliminado") {
-                                swal("Se borro el producto", {
-                                    icon: "success",
-                                },
-                                    // this.useEffect()
-                                )
-                            };
-                            fetchProducts()
-                            //   this.$router.push("/productos");
-                        });
-                }
-            });
-    }
-
+    };
 
     return (
         <div id="tareas">
@@ -72,52 +43,52 @@ const ProductTable = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        {(user.map(user => (
-                                            <tr key={user._id}>
-                                                <td>{user.code}</td>
-                                                <td>{user.name}</td>
-                                                <td>{user.marca}</td>
-                                                <td>{user.category}</td>
-                                                <td>{user.stock}</td>
-                                                <td>{user.precio}</td>
+                                        {products.map((products) => (
+                                            <tr key={products._id}>
+                                                <td>{products.code}</td>
+                                                <td>{products.name}</td>
+                                                <td>{products.marca}</td>
+                                                <td>{products.category}</td>
+                                                <td>{products.stock}</td>
+                                                <td>{products.precio}</td>
                                                 <td>
                                                     <span
-                                                        if={user.status}
-                                                        class="badge badge-pill badge-success"
+                                                        className={
+                                                            products.status === "Activo"
+                                                                ? "badge badge-pill badge-success"
+                                                                : "badge badge-pill badge-danger"
+                                                        }
                                                     >
-                                                        {user.status}</span>
-                                                    <span v-else class="badge badge-pill badge-danger">
-                                                        {user.status}</span>
+                                                        {products.status}
+                                                    </span>
                                                 </td>
                                                 <td>
-                                                    <Link class="btn btn-sm btn-primary" to="/edit-product"  >
-
-
+                                                    <Link
+                                                        class="btn btn-sm btn-primary"
+                                                        to="/edit-product"
+                                                        title="Actualizar"
+                                                    >
                                                         <i class="fas fa-pencil-alt" aria-hidden="true"></i>
-                                                    </Link>&nbsp;
+                                                    </Link>
+                                                    &nbsp;
                                                     <button
-                                                        onClick={() => deleteTask(user._id)}
                                                         class="btn btn-danger btn-sm"
-                                                        title="Eliminar">
+                                                        title="Eliminar"
+                                                    >
                                                         <i class="far fa-trash-alt" aria-hidden="true"></i>
                                                     </button>
                                                 </td>
                                             </tr>
-                                        ))
-                                        )}
-
-
-
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div >
-        </div >
+            </div>
+        </div>
     );
-}
+};
 
 export default ProductTable;
