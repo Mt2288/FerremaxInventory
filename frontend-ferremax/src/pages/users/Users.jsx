@@ -2,6 +2,7 @@ import React from "react";
 import SideBar from "../../components/SideBar";
 import TopBar from "../../components/TopBar";
 import UsersTable from "../../components/UsersTable";
+import ModalCreateUsers from "../../components/ModalCreateUsers";
 
 const Users = () => {
   return (
@@ -22,12 +23,24 @@ const Users = () => {
           <div className="container-fluid">
             {/* <!-- Page Heading --> */}
             <div className="d-sm-flex align-items-center justify-content-left mb-4">
-              <h1 className="h3 mb-0 text-gray-800">Usuarios</h1>
+              <h1 className="h3 mb-0 text-gray-800">
+                Usuarios &nbsp;
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalFormUsuarios"
+                >
+                  <i className="fas fa-plus-circle" aria-hidden="true"></i>{" "}
+                  Nuevo{" "}
+                </button>
+              </h1>
             </div>
 
             <UsersTable />
 
             {/* Content page */}
+            <ModalCreateUsers></ModalCreateUsers>
           </div>
           {/* <!-- /.container-fluid --> */}
         </div>

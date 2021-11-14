@@ -66,7 +66,7 @@ const UsersTable = () => {
                       <th>Apellidos</th>
                       <th>Teléfono</th>
                       <th>Correo electrónico</th>
-                      <th>Estado</th>
+                      <th>Rol</th>
                       <th>Acciones</th>
                     </tr>
                   </thead>
@@ -78,17 +78,7 @@ const UsersTable = () => {
                         <td>{user.lastname}</td>
                         <td>{user.telephone}</td>
                         <td>{user.email}</td>
-                        <td>
-                          <span
-                            className={
-                              user.status === "Activo"
-                                ? "badge badge-pill badge-success"
-                                : "badge badge-pill badge-danger"
-                            }
-                          >
-                            {user.status}
-                          </span>
-                        </td>
+                        <td>{user.typeusername}</td>
                         <td>
                           <Link
                             className="btn btn-sm btn-primary"

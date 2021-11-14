@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import ModalLogout from "../components/ModalLogout";
 
 const SideBar = () => {
@@ -35,7 +35,7 @@ const SideBar = () => {
 
         {/* <!-- Nav Item - Pages Collapse Menu --> */}
         <li className="nav-item">
-          <Link
+          <NavLink
             className="nav-link collapsed"
             to="/users"
             data-toggle="collapse"
@@ -46,7 +46,7 @@ const SideBar = () => {
           >
             <i className="fas fa-users-cog"></i>
             <span>Usuarios</span>
-          </Link>
+          </NavLink>
         </li>
 
         {/* <!-- Divider --> */}
@@ -65,7 +65,7 @@ const SideBar = () => {
             aria-expanded="true"
             aria-controls="collapsePages"
           >
-            <i class="fas fa-toolbox"></i>
+            <i className="fas fa-toolbox"></i>
             <span>Productos</span>
           </Link>
         </li>
@@ -81,7 +81,7 @@ const SideBar = () => {
             data-toggle="modal"
             data-target="#logoutModal"
           >
-            <i class="fas fa-sign-out-alt"></i>
+            <i className="fas fa-sign-out-alt"></i>
             <span>Cerrar sesión</span>
           </Link>
         </li>

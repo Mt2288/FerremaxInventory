@@ -30,7 +30,7 @@ const Home = () => {
               {/* Content page */}
               {/* <!-- Content Row --> */}
               <div className="row">
-                {/* <div className="col-lg-6 mb-4">
+                <div className="col-lg-6 mb-4">
                   <div className="card shadow-lg border-0 rounded-lg">
                     <div className="card-header">
                       <h4
@@ -49,7 +49,7 @@ const Home = () => {
                       </p>
                     </div>
                   </div>
-                </div> */}
+                </div>
                 <div className="col-6">
                   <div className="card shadow-lg border-0 rounded-lg">
                     <div className="card-header">

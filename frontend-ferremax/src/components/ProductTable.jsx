@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-/* import swal from 'sweetalert2'; */
+import Swal from "sweetalert2";
 import axios from "axios";
 
 const ProductTable = () => {
@@ -11,7 +11,7 @@ const ProductTable = () => {
   }, []);
 
   const fetchProducts = () => {
-    console.log("Obtener usuarios");
+    console.log("Obtener Productos");
     axios
       .get("https://ferremax.herokuapp.com/productos")
       .then((res) => {
@@ -21,7 +21,20 @@ const ProductTable = () => {
         console.log(error);
       });
   };
-
+  const handleDelete = async () => {
+    Swal.fire({
+      title: `¿Estás seguro de eliminar el producto seleccionado?`,
+      text: "Esta acción no se puede deshacer!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#f2bc16",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Sí, Eliminarlo!",
+    }).then((result) => {
+      //   console.log(result);
+    });
+  };
   return (
     <div id="tareas">
       <div className="row pt-5">
@@ -77,6 +90,7 @@ const ProductTable = () => {
                           <button
                             className="btn btn-danger btn-sm"
                             title="Eliminar"
+                            onClick={handleDelete}
                           >
                             <i
                               className="far fa-trash-alt"

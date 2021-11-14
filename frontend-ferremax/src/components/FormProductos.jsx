@@ -19,7 +19,7 @@ const FormProductos = () => {
   const addTask = (e) => {
     console.log(user);
     axios
-      .post("https://ferremax.herokuapp.com/productos", user, {
+      .post("http://localhost:5000/productos", user, {
         headers: {
           "Access-Control-Allow_Methods": "POST",
         },
@@ -41,13 +41,14 @@ const FormProductos = () => {
 
   return (
     <React.Fragment>
-      <div className="col-lg-6 pb-4">
+      <div>
         <form onSubmit={addTask}>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Código</label>
+            <label htmlFor="exampleInputEmail1">Codigo</label>
             <input
               name="code"
               type="text"
+              className="form-control"
               value={user.code}
               onChange={handleInputChange}
               placeholder="Numero identificacion"
@@ -58,6 +59,7 @@ const FormProductos = () => {
             <input
               name="name"
               type="text"
+              className="form-control"
               value={user.name}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -69,6 +71,7 @@ const FormProductos = () => {
             <input
               name="marca"
               type="text"
+              className="form-control"
               value={user.marca}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -80,6 +83,7 @@ const FormProductos = () => {
             <input
               name="category"
               type="text"
+              className="form-control"
               value={user.category}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -91,10 +95,11 @@ const FormProductos = () => {
             <input
               name="stock"
               type="number"
+              className="form-control"
               value={user.stock}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
-              placeholder="Stock"
+              placeholder="Email"
             />
           </div>
           <div className="form-group">
@@ -102,6 +107,7 @@ const FormProductos = () => {
             <input
               name="precio"
               type="number"
+              className="form-control"
               value={user.precio}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -109,9 +115,11 @@ const FormProductos = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="status">Estado</label>
+            <label htmlFor="exampleInputEmail1">Status</label>
             <select
               name="status"
+              type="text"
+              className="form-control"
               value={user.status}
               onChange={handleInputChange}
               aria-describedby="emailHelp"
@@ -122,7 +130,9 @@ const FormProductos = () => {
             </select>
           </div>
 
-          <input type="submit" value="Actualizar producto" />
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
         </form>
       </div>
     </React.Fragment>
