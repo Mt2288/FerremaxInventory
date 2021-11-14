@@ -2,15 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ModalLogout from "../components/ModalLogout";
 
-
 const TopBar = () => {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
         {/* <!-- Topbar Navbar --> */}
         <ul className="navbar-nav ml-auto">
-
           {/* <!-- Nav Item - User Information --> */}
           <li className="nav-item dropdown no-arrow">
             <Link
@@ -22,7 +19,10 @@ const TopBar = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <span className="mr-2 d-none d-lg-inline text-gray-600 small" id="NameUser">
+              <span
+                className="mr-2 d-none d-lg-inline text-gray-600 small"
+                id="NameUser"
+              >
                 <i className="fa fa-user-cog"></i> Admin
               </span>
               {/* <img

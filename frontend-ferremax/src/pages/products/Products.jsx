@@ -2,6 +2,7 @@ import React from "react";
 import SideBar from "../../components/SideBar";
 import TopBar from "../../components/TopBar";
 import ProductTable from "../../components/ProductTable";
+import ModalCreateProducts from "../../components/ModalCreateProducts";
 const Product = () => {
   return (
     <div id="wrapper">
@@ -27,7 +28,7 @@ const Product = () => {
                   type="button"
                   className="btn btn-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#modalFormProducto"
+                  data-bs-target="#modalFormProductos"
                 >
                   <i className="fas fa-plus-circle" aria-hidden="true"></i>{" "}
                   Nuevo{" "}
@@ -36,6 +37,7 @@ const Product = () => {
             </div>
             <ProductTable />
             {/* Content page */}
+            <ModalCreateProducts></ModalCreateProducts>
           </div>
           {/* <!-- /.container-fluid --> */}
         </div>
