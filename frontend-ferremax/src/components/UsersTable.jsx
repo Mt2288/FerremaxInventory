@@ -83,6 +83,7 @@ const UsersTable = () => {
                           <Link
                             className="btn btn-sm btn-primary"
                             to="/edit-user"
+                            title="Actualizar"
                           >
                             <i
                               className="fas fa-pencil-alt"

@@ -10,6 +10,7 @@ const ModalCreateProducts = () => {
   const [name, setName] = useState("");
   const [marca, setMarca] = useState("");
   const [category, setCategory] = useState("");
+  const [descrption, setDescrption] = useState("");
   const [stock, setStock] = useState(0);
   const [precio, setPrecio] = useState(0);
   const [status, setStatus] = useState("");
@@ -24,6 +25,7 @@ const ModalCreateProducts = () => {
         name,
         marca,
         category,
+        descrption,
         stock,
         precio,
         status,
@@ -64,7 +66,7 @@ const ModalCreateProducts = () => {
       aria-labelledby="ModalProducts"
       aria-hidden="true"
     >
-      <div className="modal-dialog">
+      <div className="modal-dialog modal-lg">
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="ModalProducts">
@@ -80,25 +82,23 @@ const ModalCreateProducts = () => {
           <div className="modal-body">
             <form onSubmit={addProduct}>
               <div className="row">
-                <div className="col-md-3">
+                <div className="col-md-4">
                   <label htmlFor="code" className="col-form-label">
                     Codigo:
                   </label>
                   <input
                     type="number"
-                    className="form-control"
                     required
                     value={code}
                     onChange={(e) => setCode(e.target.value)}
                   />
                 </div>
-                <div class="col-md-5">
+                <div className="col-md-4">
                   <label htmlFor="name-text" className="col-form-label">
                     Nombre:
                   </label>
                   <input
                     type="text"
-                    className="form-control"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -111,7 +111,6 @@ const ModalCreateProducts = () => {
                   </label>
                   <input
                     type="text"
-                    className="form-control"
                     required
                     value={marca}
                     onChange={(e) => setMarca(e.target.value)}
@@ -119,25 +118,34 @@ const ModalCreateProducts = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-4">
                   <label htmlFor="category-text" className="col-form-label">
                     Categoria:
                   </label>
                   <input
                     type="text"
-                    className="form-control"
                     required
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                   />
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-4">
+                  <label htmlFor="category-text" className="col-form-label">
+                    Descripción:
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={descrption}
+                    onChange={(e) => setDescrption(e.target.value)}
+                  />
+                </div>
+                <div className="col-md-4">
                   <label htmlFor="stock-text" className="col-form-label">
                     Stock:
                   </label>
                   <input
                     type="number"
-                    className="form-control"
                     required
                     value={stock}
                     onChange={(e) => setStock(e.target.value)}
@@ -146,29 +154,27 @@ const ModalCreateProducts = () => {
               </div>
 
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-4">
                   <label htmlFor="price-text" className="col-form-label">
                     Precio:
                   </label>
                   <input
                     type="number"
-                    className="form-control"
                     required
                     value={precio}
                     onChange={(e) => setPrecio(e.target.value)}
                   />
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-4">
                   <label htmlFor="status-text" className="col-form-label">
                     Estado:
                   </label>
                   <select
                     name="status"
-                    className="form-control"
                     onChange={(e) => setStatus(e.target.value)}
                     placeholder="Status"
                   >
-                    <option value="">Elija una opción</option>
+                    <option disabled="disabled">Elija una opción</option>
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
                   </select>
@@ -176,15 +182,15 @@ const ModalCreateProducts = () => {
               </div>
               <br />
               <div className="modal-footer">
-                <button type="submit" className="btn btn-success">
-                  Crear
-                </button>
                 <button
                   type="reset"
                   className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Cancelar
+                </button>
+                <button type="submit" className="btn btn-success">
+                  Crear
                 </button>
               </div>
             </form>

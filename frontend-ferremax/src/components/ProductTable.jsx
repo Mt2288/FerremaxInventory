@@ -27,10 +27,10 @@ const ProductTable = () => {
       text: "Esta acción no se puede deshacer!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#f2bc16",
+      confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       cancelButtonText: "Cancelar",
-      confirmButtonText: "Sí, Eliminarlo!",
+      confirmButtonText: "Sí, Eliminalo!",
     }).then((result) => {
       //   console.log(result);
     });
