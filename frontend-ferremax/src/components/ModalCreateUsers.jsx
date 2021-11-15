@@ -67,7 +67,7 @@ const ModalCreateUsers = () => {
       aria-labelledby="ModalUsers"
       aria-hidden="true"
     >
-      <div className="modal-dialog">
+      <div className="modal-dialog modal-lg">
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="ModalUsers">
@@ -85,23 +85,21 @@ const ModalCreateUsers = () => {
               <div className="row">
                 <div className="col-md-4">
                   <label htmlFor="code" className="col-form-label">
-                    N° Identificacion:
+                    N° Identificacion
                   </label>
                   <input
                     type="number"
-                    className="form-control"
                     required
                     value={identificacion}
                     onChange={(e) => setIdentificacion(e.target.value)}
                   />
                 </div>
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <label htmlFor="name-text" className="col-form-label">
-                    Nombres:
+                    Nombres
                   </label>
                   <input
                     type="text"
-                    className="form-control"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -110,11 +108,10 @@ const ModalCreateUsers = () => {
                 </div>
                 <div className="col-md-4">
                   <label htmlFor="marca-text" className="col-form-label">
-                    Apellidos:
+                    Apellidos
                   </label>
                   <input
                     type="text"
-                    className="form-control"
                     required
                     value={lastname}
                     onChange={(e) => setLastname(e.target.value)}
@@ -122,35 +119,63 @@ const ModalCreateUsers = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-4">
                   <label htmlFor="phone-number" className="col-form-label">
-                    Telefono:
+                    Telefono
                   </label>
                   <input
                     type="number"
-                    className="form-control"
                     value={telephone}
                     onChange={(e) => setTelephone(e.target.value)}
                   />
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-4">
                   <label htmlFor="e-mail" className="col-form-label">
-                    Correo:
+                    Correo
                   </label>
                   <input
                     type="email"
-                    className="form-control"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
+                <div className="col-md-4">
+                  <label htmlFor="status-select" className="col-form-label">
+                    Estado
+                  </label>
+                  <select
+                    name="status"
+                    required
+                    onChange={(e) => setStatus(e.target.value)}
+                  >
+                    <option disabled="disabled">Elija una opción</option>
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                  </select>
+                </div>
               </div>
 
               <div className="row">
                 <div className="col-md-4">
+                  <label htmlFor="rol-select" className="col-form-label">
+                    Rol
+                  </label>
+                  <select
+                    name="rol"
+                    required
+                    onChange={(e) => setTypeUserName(e.target.value)}
+                  >
+                    <option disabled="disabled">Elija una opción</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Moderador">Moderador</option>
+                    <option value="Cliente">Cliente</option>
+                    <option value="Proveedor">Proveedor</option>
+                  </select>
+                </div>
+                <div className="col-md-4">
                   <label htmlFor="password" className="col-form-label">
-                    Contraseña:
+                    Contraseña
                   </label>
                   <input
                     type="password"
@@ -160,48 +185,18 @@ const ModalCreateUsers = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <div className="col-md-4">
-                  <label htmlFor="status-select" className="col-form-label">
-                    Estado:
-                  </label>
-                  <select
-                    name="status"
-                    className="form-control"
-                    onChange={(e) => setStatus(e.target.value)}
-                  >
-                    <option value="">Elija una opción</option>
-                    <option value="Activo">Activo</option>
-                    <option value="Inactivo">Inactivo</option>
-                  </select>
-                </div>
-                <div className="col-md-4">
-                  <label htmlFor="rol-select" className="col-form-label">
-                    Rol:
-                  </label>
-                  <select
-                    name="rol"
-                    className="form-control"
-                    onChange={(e) => setTypeUserName(e.target.value)}
-                  >
-                    <option value="">Elija una opción</option>
-                    <option value="Administrador">Administrador</option>
-                    <option value="Moderador">Moderador</option>
-                    <option value="Cliente">Cliente</option>
-                    <option value="Proveedor">Proveedor</option>
-                  </select>
-                </div>
               </div>
               <br />
               <div className="modal-footer">
-                <button type="submit" className="btn btn-success">
-                  Crear
-                </button>
                 <button
                   type="reset"
                   className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Cancelar
+                </button>
+                <button type="submit" className="btn btn-success">
+                  Crear
                 </button>
               </div>
             </form>
