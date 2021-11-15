@@ -1,5 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 const ModalLogout = () => {
+  const history = useHistory();
+  const clearStorage = () => {
+    localStorage.removeItem("token");
+    history.push("/login")
+  };
   return (
     <React.Fragment>
       {/* <!-- Logout Modal--> */}
@@ -38,9 +44,9 @@ const ModalLogout = () => {
               >
                 Cancelar
               </button>
-              <a className="btn btn-warning" href="/login">
+              <button className="btn btn-warning" onClick={ () => clearStorage()} data-dismiss="modal">
                 Cerrar sesión
-              </a>
+              </button>
             </div>
           </div>
         </div>
