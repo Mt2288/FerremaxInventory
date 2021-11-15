@@ -7,6 +7,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import EditUser from "./pages/users/EditUser";
 import EditProduct from "./pages/products/EditProduct";
+import ProtectedRoute from "./components/Protected.route";
 
 function App() {
   return (
@@ -19,21 +20,21 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/dashboard">
-            <Home />
-          </Route>
-          <Route exact path="/users">
-            <Users />
-          </Route>
-          <Route exact path="/products">
-            <Products />
-          </Route>
-          <Route exact path="/edit-user">
-            <EditUser />
-          </Route>
-          <Route exact path="/edit-product">
-            <EditProduct />
-          </Route>
+          <ProtectedRoute exact path="/dashboard" component={Home}>
+            {/* <Home /> */}
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/users" component={Users}>
+            {/* <Users /> */}
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/products" component={Products}>
+            {/* <Products /> */}
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/edit-user" component={EditUser}>
+            {/* <EditUser /> */}
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/edit-product" component={EditProduct}>
+            {/* <EditProduct /> */}
+          </ProtectedRoute>
           <Route path="*">
             <Error404></Error404>
           </Route>
