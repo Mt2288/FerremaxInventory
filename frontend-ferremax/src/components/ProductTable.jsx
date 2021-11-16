@@ -11,7 +11,6 @@ const ProductTable = () => {
   }, []);
 
   const fetchProducts = () => {
-    console.log("Obtener Productos");
     axios
       .get("https://ferremax.herokuapp.com/productos")
       .then((res) => {
@@ -21,7 +20,7 @@ const ProductTable = () => {
         console.log(error);
       });
   };
-  const handleDelete = async () => {
+  const handleDelete = async (id) => {
     Swal.fire({
       title: `¿Estás seguro de eliminar el producto seleccionado?`,
       text: "Esta acción no se puede deshacer!",
@@ -32,7 +31,12 @@ const ProductTable = () => {
       cancelButtonText: "Cancelar",
       confirmButtonText: "Sí, Eliminalo!",
     }).then((result) => {
-      //   console.log(result);
+      axios
+        .delete("https://ferremax.herokuapp.com/productos/" + id)
+        .then((data) => {
+          console.log(data.data.status);
+          fetchProducts();
+        });
     });
   };
   return (
@@ -49,6 +53,7 @@ const ProductTable = () => {
                       <th>Nombre</th>
                       <th>Marca</th>
                       <th>Categoría</th>
+                      <th>Descripción</th>
                       <th>Stock</th>
                       <th>Precio</th>
                       <th>Estado</th>
@@ -62,6 +67,7 @@ const ProductTable = () => {
                         <td>{products.name}</td>
                         <td>{products.marca}</td>
                         <td>{products.category}</td>
+                        <td>{products.description}</td>
                         <td>{products.stock}</td>
                         <td>{products.precio}</td>
                         <td>
@@ -90,7 +96,7 @@ const ProductTable = () => {
                           <button
                             className="btn btn-danger btn-sm"
                             title="Eliminar"
-                            onClick={handleDelete}
+                            onClick={() => handleDelete(products._id)}
                           >
                             <i
                               className="far fa-trash-alt"

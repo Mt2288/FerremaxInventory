@@ -6,14 +6,10 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 const Login = () => {
-
   const history = useHistory();
-
- 
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
 
   const URL = "https://ferremax.herokuapp.com/login";
   const login = async (e) => {
@@ -31,31 +27,22 @@ const Login = () => {
           console.log(localStorage.getItem("token"));
           history.push("/dashboard");
         } else {
-        InicioFallido(); 
+          InicioFallido();
         }
 
         setEmail("");
         setPassword("");
-
       })
       .catch((error) => {
         console.log(error);
       });
   };
   const InicioSesion = () => {
-    Swal.fire(
-      "Exitoso",
-      `Se ha iniciado sesion exitosamente!`,
-      "success"
-    );
-  };  
+    Swal.fire("Exitoso", `Se ha iniciado sesion exitosamente!`, "success");
+  };
   const InicioFallido = () => {
-    Swal.fire(
-      "Error!",
-      "Hubo un problema al iniciar sesion!",
-      "error"
-    );
-  }; 
+    Swal.fire("Error!", "Hubo un problema al iniciar sesion!", "error");
+  };
 
   return (
     <div className="content-all">
@@ -75,7 +62,6 @@ const Login = () => {
           <label htmlFor="">Contraseña</label>
           <input
             type="password"
-            className="form-control"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
