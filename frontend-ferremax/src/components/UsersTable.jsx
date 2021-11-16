@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import React, { useState } from "react";
 
-/* import swal from "sweetalert2"; */
+import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -23,12 +23,41 @@ const UsersTable = () => {
       });
   };
 
-  const deleteUser = (id) => {
-    axios.delete("https://ferremax.herokuapp.com/" + id).then((data) => {
-      console.log(data.data.status);
-      fetchUsers();
+  const handleDelete = (id) => {
+      Swal.fire({
+        title: `¿Estás seguro de eliminar el usuario seleccionado?`,
+        text: "Esta acción no se puede deshacer!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Sí, Eliminalo!",
+      }).then((result) => {
+        if (result) {
+          axios
+          .delete("https://ferremax.herokuapp.com/" + id)
+          .then((data) => {
+              //   useEffect();
+              if (data.status === "eliminado") {
+                  Swal("Se borro el usuario", {
+                      icon: "success",
+                  },
+                      // this.useEffect()
+                  )
+              };
+              fetchUsers()
+              //   this.$router.push("/productos");
+          });
+         
+        
+        }
+        
+          
+      
     });
   };
+  
 
   return (
     <div id="tareas">
@@ -71,7 +100,7 @@ const UsersTable = () => {
                           </Link>
                           &nbsp;
                           <button
-                            onClick={() => deleteUser(user._id)}
+                            onClick={() => handleDelete(user._id)}
                             className="btn btn-danger btn-sm"
                             title="Eliminar"
                           >
