@@ -104,10 +104,25 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          <label htmlFor="rol-select" className="col-form-label">
+            Rol
+          </label>
+          <select
+            name="rol"
+            required
+            onChange={(e) => setTypeUserName(e.target.value)}
+          >
+            <option selected="true" disabled="disabled">
+              Elija una opción
+            </option>
+            <option value="Administrador">Administrador</option>
+            <option value="Moderador">Vendedor</option>
+            <option value="Moderador">Moderador</option>
+            <option value="Proveedor">Proveedor</option>
+          </select>
           <label htmlFor="">Contraseña</label>
           <input
             type="password"
-            className="form-control"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}

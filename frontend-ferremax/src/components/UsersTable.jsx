@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import React, { useState } from "react";
 
-import swal from "sweetalert2";
+/* import swal from "sweetalert2"; */
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const UsersTable = () => {
   const [user, setUser] = useState([]);
@@ -12,42 +13,20 @@ const UsersTable = () => {
   }, []);
 
   const fetchUsers = () => {
-    fetch("https://ferremax.herokuapp.com/")
-      .then((res) => res.json())
-      .then((data) => {
-        setUser(data);
+    axios
+      .get("https://ferremax.herokuapp.com/")
+      .then((res) => {
+        setUser(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
-  const deleteTask = (id) => {
-    swal({
-      title: "Estas seguro?",
-      buttons: ["No", "Sí, bórralo!"],
-    }).then((result) => {
-      if (result) {
-        fetch("https://ferremax.herokuapp.com/" + id, {
-          method: "DELETE",
-          headers: {
-            Accept: "application/json",
-            "Content-type": "application/json",
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            //   useEffect();
-            if (data.status === "eliminado") {
-              swal(
-                "Se borro el usuario",
-                {
-                  icon: "success",
-                }
-                // this.useEffect()
-              );
-            }
-            fetchUsers();
-            //   this.$router.push("/productos");
-          });
-      }
+  const deleteUser = (id) => {
+    axios.delete("https://ferremax.herokuapp.com/" + id).then((data) => {
+      console.log(data.data.status);
+      fetchUsers();
     });
   };
 
@@ -92,7 +71,7 @@ const UsersTable = () => {
                           </Link>
                           &nbsp;
                           <button
-                            onClick={() => deleteTask(user._id)}
+                            onClick={() => deleteUser(user._id)}
                             className="btn btn-danger btn-sm"
                             title="Eliminar"
                           >

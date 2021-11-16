@@ -179,7 +179,6 @@ const ModalCreateUsers = () => {
                   </label>
                   <input
                     type="password"
-                    className="form-control"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
