@@ -29,10 +29,10 @@ function App() {
           <ProtectedRoute exact path="/products" component={Products}>
             {/* <Products /> */}
           </ProtectedRoute>
-          <ProtectedRoute exact path="/edit-user" component={EditUser}>
+          <ProtectedRoute exact path="/edit-user/:id" component={EditUser}>
             {/* <EditUser /> */}
           </ProtectedRoute>
-          <ProtectedRoute exact path="/edit-product" component={EditProduct}>
+          <ProtectedRoute exact path="/edit-product/:id" component={EditProduct}>
             {/* <EditProduct /> */}
           </ProtectedRoute>
           <Route path="*">
