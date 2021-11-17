@@ -94,7 +94,7 @@ const ProductTable = () => {
                         <td>
                           <Link
                             className="btn btn-sm btn-primary"
-                            to="/edit-product"
+                            to={"/edit-product/"+products._id}
                             title="Actualizar"
                           >
                             <i
