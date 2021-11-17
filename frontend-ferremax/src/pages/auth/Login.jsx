@@ -11,7 +11,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const URL = "https://ferremax.herokuapp.com/login";
+  const URL = "https://backend-ferremax.herokuapp.com/api/login";
   const login = async (e) => {
     e.preventDefault();
     console.log("Enviado");

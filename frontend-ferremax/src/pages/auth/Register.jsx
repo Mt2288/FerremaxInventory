@@ -17,7 +17,7 @@ const Register = () => {
   const [status, setStatus] = useState("");
   const [typeusername, setTypeUserName] = useState("");
 
-  const URL = "https://ferremax.herokuapp.com/register";
+  const URL = "https://backend-ferremax.herokuapp.com/api/register";
   const addNewUser = async (e) => {
     e.preventDefault();
     console.log("Enviado");
@@ -112,7 +112,7 @@ const Register = () => {
             required
             onChange={(e) => setTypeUserName(e.target.value)}
           >
-            <option selected="true" disabled="disabled">
+            <option value="" disabled="disabled">
               Elija una opción
             </option>
             <option value="Administrador">Administrador</option>

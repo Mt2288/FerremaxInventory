@@ -10,22 +10,22 @@ const ModalCreateProducts = () => {
   const [name, setName] = useState("");
   const [marca, setMarca] = useState("");
   const [category, setCategory] = useState("");
-  const [descrption, setDescrption] = useState("");
+  const [description, setDescription] = useState("");
   const [stock, setStock] = useState(0);
   const [precio, setPrecio] = useState(0);
   const [status, setStatus] = useState("");
 
-  const URL = "https://ferremax.herokuapp.com/productos";
+  const URL = "https://backend-ferremax.herokuapp.com/api/productos";
   const addProduct = async (e) => {
     e.preventDefault();
-    console.log("Enviado");
+    console.log("Producto guardado");
     axios
       .post(URL, {
         code,
         name,
         marca,
         category,
-        descrption,
+        description,
         stock,
         precio,
         status,
@@ -36,22 +36,23 @@ const ModalCreateProducts = () => {
         setName("");
         setMarca("");
         setCategory("");
+        setDescription("");
         setStock(0);
         setPrecio(0);
         setStatus("");
-        if (respuesta.status === 200) {
-          Swal.fire(
-            "Guardado!",
-            `El registro ha sido guardado exitosamente!`,
-            "success"
-          );
-          history.push("/products");
-        } else {
+        if (respuesta.status !== 200) {
           Swal.fire(
             "Error!",
             "Hubo un problema al crear el registro!",
             "error"
           );
+        } else {
+          Swal.fire(
+            "Guardado!",
+            `El producto ha sido guardado correctamente!`,
+            "success"
+          );
+          history.push("/products");
         }
       })
       .catch((error) => {
@@ -84,7 +85,7 @@ const ModalCreateProducts = () => {
               <div className="row">
                 <div className="col-md-4">
                   <label htmlFor="code" className="col-form-label">
-                    Codigo:
+                    Código
                   </label>
                   <input
                     type="number"
@@ -95,7 +96,7 @@ const ModalCreateProducts = () => {
                 </div>
                 <div className="col-md-4">
                   <label htmlFor="name-text" className="col-form-label">
-                    Nombre:
+                    Nombre
                   </label>
                   <input
                     type="text"
@@ -107,7 +108,7 @@ const ModalCreateProducts = () => {
                 </div>
                 <div className="col-md-4">
                   <label htmlFor="marca-text" className="col-form-label">
-                    Marca:
+                    Marca
                   </label>
                   <input
                     type="text"
@@ -120,7 +121,7 @@ const ModalCreateProducts = () => {
               <div className="row">
                 <div className="col-md-4">
                   <label htmlFor="category-text" className="col-form-label">
-                    Categoria:
+                    Categoria
                   </label>
                   <input
                     type="text"
@@ -131,18 +132,18 @@ const ModalCreateProducts = () => {
                 </div>
                 <div className="col-md-4">
                   <label htmlFor="category-text" className="col-form-label">
-                    Descripción:
+                    Descripción
                   </label>
                   <input
                     type="text"
                     required
-                    value={descrption}
-                    onChange={(e) => setDescrption(e.target.value)}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                   />
                 </div>
                 <div className="col-md-4">
                   <label htmlFor="stock-text" className="col-form-label">
-                    Stock:
+                    Stock
                   </label>
                   <input
                     type="number"
@@ -156,7 +157,7 @@ const ModalCreateProducts = () => {
               <div className="row">
                 <div className="col-md-4">
                   <label htmlFor="price-text" className="col-form-label">
-                    Precio:
+                    Precio
                   </label>
                   <input
                     type="number"
@@ -167,14 +168,16 @@ const ModalCreateProducts = () => {
                 </div>
                 <div className="col-md-4">
                   <label htmlFor="status-text" className="col-form-label">
-                    Estado:
+                    Estado
                   </label>
                   <select
                     name="status"
                     onChange={(e) => setStatus(e.target.value)}
                     placeholder="Status"
                   >
-                    <option disabled="disabled">Elija una opción</option>
+                    <option value="" disabled="disabled" selected="false">
+                      Elija una opción
+                    </option>
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
                   </select>

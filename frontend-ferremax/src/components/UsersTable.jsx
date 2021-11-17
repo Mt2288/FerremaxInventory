@@ -14,7 +14,7 @@ const UsersTable = () => {
 
   const fetchUsers = () => {
     axios
-      .get("https://ferremax.herokuapp.com/")
+      .get("https://backend-ferremax.herokuapp.com/api/usuarios")
       .then((res) => {
         setUser(res.data);
       })
@@ -24,40 +24,33 @@ const UsersTable = () => {
   };
 
   const handleDelete = (id) => {
-      Swal.fire({
-        title: `¿Estás seguro de eliminar el usuario seleccionado?`,
-        text: "Esta acción no se puede deshacer!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        cancelButtonText: "Cancelar",
-        confirmButtonText: "Sí, Eliminalo!",
-      }).then((result) => {
-        if (result) {
-          axios
-          .delete("https://ferremax.herokuapp.com/" + id)
+    Swal.fire({
+      title: `¿Estás seguro de eliminar el usuario seleccionado?`,
+      text: "Esta acción no se puede deshacer!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Sí, Eliminalo!",
+    }).then((result) => {
+      if (result) {
+        axios
+          .delete("https://backend-ferremax.herokuapp.com/api/usuarios/" + id)
           .then((data) => {
-              //   useEffect();
-              if (data.status === "eliminado") {
-                  Swal("Se borro el usuario", {
-                      icon: "success",
-                  },
-                      // this.useEffect()
-                  )
-              };
-              fetchUsers()
-              //   this.$router.push("/productos");
+            Swal.fire({
+              text: "Usuario eliminado correctamente",
+              icon: "success",
+            });
+            console.log(data.data.status);
+            fetchUsers();
+          })
+          .catch((error) => {
+            console.log(error);
           });
-         
-        
-        }
-        
-          
-      
+      }
     });
   };
-  
 
   return (
     <div id="tareas">

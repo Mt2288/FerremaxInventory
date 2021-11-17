@@ -7,7 +7,7 @@ const ProductSchema = new Schema({
     name: { type: String, required: true },
     marca: { type: String, required: true },
     category: { type: String, required: true },
-    descrption: { type: String, required: true },
+    description: { type: String, required: true },
     stock: { type: Number, required: true },
     precio: { type: Number, required: true },
     status: { type: String, required: true },
