@@ -15,7 +15,7 @@ const ModalCreateUsers = () => {
   const [status, setStatus] = useState("");
   const [typeusername, setTypeUserName] = useState("");
 
-  const URL = "https://ferremax.herokuapp.com/register";
+  const URL = "https://backend-ferremax.herokuapp.com/api/register";
   const addProduct = async (e) => {
     e.preventDefault();
     console.log("Enviado");
@@ -44,7 +44,7 @@ const ModalCreateUsers = () => {
           Swal.fire(
             "Guardado!",
             `El usuario ha sido creado exitosamente!`,
-            "success"
+            "success",
           );
           history.push("/users");
         } else {
@@ -149,7 +149,9 @@ const ModalCreateUsers = () => {
                     required
                     onChange={(e) => setStatus(e.target.value)}
                   >
-                    <option disabled="disabled">Elija una opción</option>
+                    <option value="" disabled="disabled">
+                      Elija una opción
+                    </option>
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
                   </select>
@@ -166,7 +168,9 @@ const ModalCreateUsers = () => {
                     required
                     onChange={(e) => setTypeUserName(e.target.value)}
                   >
-                    <option disabled="disabled">Elija una opción</option>
+                    <option selected="true" disabled="disabled">
+                      Elija una opción
+                    </option>
                     <option value="Administrador">Administrador</option>
                     <option value="Moderador">Moderador</option>
                     <option value="Cliente">Cliente</option>

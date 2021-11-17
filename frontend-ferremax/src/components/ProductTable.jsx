@@ -12,7 +12,7 @@ const ProductTable = () => {
 
   const fetchProducts = () => {
     axios
-      .get("https://ferremax.herokuapp.com/productos")
+      .get("https://backend-ferremax.herokuapp.com/api/productos")
       .then((res) => {
         setProducts(res.data);
       })
@@ -23,7 +23,7 @@ const ProductTable = () => {
   const handleDelete = async (id) => {
     Swal.fire({
       title: `¿Estás seguro de eliminar el producto seleccionado?`,
-      text: "Esta acción no se puede deshacer!",
+      text: "Ésta acción no se puede deshacer!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -31,12 +31,21 @@ const ProductTable = () => {
       cancelButtonText: "Cancelar",
       confirmButtonText: "Sí, Eliminalo!",
     }).then((result) => {
-      axios
-        .delete("https://ferremax.herokuapp.com/productos/" + id)
-        .then((data) => {
-          console.log(data.data.status);
-          fetchProducts();
-        });
+      if (result) {
+        axios
+          .delete("https://backend-ferremax.herokuapp.com/api/productos/" + id)
+          .then((data) => {
+            Swal.fire({
+              text: "Producto eliminado correctamente",
+              icon: "success",
+            });
+            console.log(data.data.status);
+            fetchProducts();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     });
   };
   return (
