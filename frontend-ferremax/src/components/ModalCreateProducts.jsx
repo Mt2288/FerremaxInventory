@@ -171,11 +171,12 @@ const ModalCreateProducts = () => {
                     Estado
                   </label>
                   <select
+                    defaultValue={"DEFAULT"}
                     name="status"
                     onChange={(e) => setStatus(e.target.value)}
                     placeholder="Status"
                   >
-                    <option value="" disabled="disabled" selected="false">
+                    <option value="DEFAULT" disabled selected={true}>
                       Elija una opción
                     </option>
                     <option value="Activo">Activo</option>

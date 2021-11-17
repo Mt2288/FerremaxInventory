@@ -108,11 +108,12 @@ const Register = () => {
             Rol
           </label>
           <select
+            defaultValue={"DEFAULT"}
             name="rol"
             required
             onChange={(e) => setTypeUserName(e.target.value)}
           >
-            <option value="" disabled="disabled">
+            <option value="DEFAULT" disabled selected={false}>
               Elija una opción
             </option>
             <option value="Administrador">Administrador</option>

@@ -34,7 +34,7 @@ const UsersTable = () => {
       cancelButtonText: "Cancelar",
       confirmButtonText: "Sí, Eliminalo!",
     }).then((result) => {
-      if (result) {
+      if (result.isConfirmed) {
         axios
           .delete("https://backend-ferremax.herokuapp.com/api/usuarios/" + id)
           .then((data) => {

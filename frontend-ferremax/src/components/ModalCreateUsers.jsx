@@ -44,7 +44,7 @@ const ModalCreateUsers = () => {
           Swal.fire(
             "Guardado!",
             `El usuario ha sido creado exitosamente!`,
-            "success",
+            "success"
           );
           history.push("/users");
         } else {
@@ -145,11 +145,12 @@ const ModalCreateUsers = () => {
                     Estado
                   </label>
                   <select
+                    defaultValue={"DEFAULT"}
                     name="status"
                     required
                     onChange={(e) => setStatus(e.target.value)}
                   >
-                    <option value="" disabled="disabled">
+                    <option value="DEFAULT" disabled selected={false}>
                       Elija una opción
                     </option>
                     <option value="Activo">Activo</option>
@@ -164,11 +165,12 @@ const ModalCreateUsers = () => {
                     Rol
                   </label>
                   <select
+                    defaultValue={"DEFAULT"}
                     name="rol"
                     required
                     onChange={(e) => setTypeUserName(e.target.value)}
                   >
-                    <option selected="true" disabled="disabled">
+                    <option selected={true} disabled value="DEFAULT">
                       Elija una opción
                     </option>
                     <option value="Administrador">Administrador</option>

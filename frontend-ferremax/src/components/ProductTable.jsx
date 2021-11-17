@@ -31,15 +31,16 @@ const ProductTable = () => {
       cancelButtonText: "Cancelar",
       confirmButtonText: "Sí, Eliminalo!",
     }).then((result) => {
-      if (result) {
+      if (result.isConfirmed) {
         axios
           .delete("https://backend-ferremax.herokuapp.com/api/productos/" + id)
+          .then((res) => res.json())
           .then((data) => {
             Swal.fire({
               text: "Producto eliminado correctamente",
               icon: "success",
             });
-            console.log(data.data.status);
+            console.log(data);
             fetchProducts();
           })
           .catch((error) => {
