@@ -81,9 +81,9 @@ const UsersTable = () => {
                         <td>{user.email}</td>
                         <td>{user.typeusername}</td>
                         <td>
-                        <Link
+                          <Link
                             className="btn btn-sm btn-primary"
-                            to={"/edit-user/"+user._id}
+                            to={"/edit-user/" + user._id}
                             title="Actualizar"
                           >
                             <i

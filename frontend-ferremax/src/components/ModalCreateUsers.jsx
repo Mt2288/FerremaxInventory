@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import $ from "jquery";
 
 const ModalCreateUsers = () => {
   const history = useHistory();
@@ -41,11 +42,14 @@ const ModalCreateUsers = () => {
         setStatus("");
         setTypeUserName("");
         if (respuesta.status === 200) {
-          Swal.fire(
-            "Guardado!",
-            `El usuario ha sido creado exitosamente!`,
-            "success"
-          );
+          Swal.fire({
+            title: "Guardado!",
+            text: `El usuario ha sido creado exitosamente!`,
+            icon: "success",
+          }).then(() => {
+            window.location.reload();
+          });
+          $("#modalFormUsuarios").hide();
           history.push("/users");
         } else {
           Swal.fire(

@@ -9,21 +9,22 @@ const EditProduct = (props) => {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    fetchUsers();
+    fetchProducts();
   }, []);
 
-
-  const fetchUsers = () => {
+  const fetchProducts = () => {
     axios
-      .get("https://backend-ferremax.herokuapp.com/api/productos/" + props.match.params.id)
-      .then((res) =>{
+      .get(
+        "https://backend-ferremax.herokuapp.com/api/productos/" +
+          props.match.params.id
+      )
+      .then((res) => {
         setUser(res.data);
         console.log(user);
       })
       .catch((error) => {
         console.log(error);
-      });   
-      
+      });
   };
   const submit = (e) => {
     // data to send the api via POST method
@@ -58,19 +59,19 @@ const EditProduct = (props) => {
         }
       })
       .catch(() => this.error());
-      e.preventDefault();
-      Swal.fire({
-        text: "Modificado correctamente",
-        icon: "success",
-      });
-  };  
+    e.preventDefault();
+    Swal.fire({
+      text: "Modificado correctamente",
+      icon: "success",
+    });
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
     // console.log(event.target.value)
   };
-  
+
   return (
     <div id="wrapper">
       {/* <!-- Sidebar --> */}
