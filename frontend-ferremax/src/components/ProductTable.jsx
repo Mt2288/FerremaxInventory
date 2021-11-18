@@ -34,7 +34,6 @@ const ProductTable = () => {
       if (result.isConfirmed) {
         axios
           .delete("https://backend-ferremax.herokuapp.com/api/productos/" + id)
-          .then((res) => res.json())
           .then((data) => {
             Swal.fire({
               text: "Producto eliminado correctamente",
@@ -94,7 +93,7 @@ const ProductTable = () => {
                         <td>
                           <Link
                             className="btn btn-sm btn-primary"
-                            to={"/edit-product/"+products._id}
+                            to={"/edit-product/" + products._id}
                             title="Actualizar"
                           >
                             <i

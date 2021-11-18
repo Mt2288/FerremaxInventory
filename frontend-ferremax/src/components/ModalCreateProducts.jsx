@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import $ from "jquery";
 
 const ModalCreateProducts = () => {
   const history = useHistory();
@@ -47,11 +48,14 @@ const ModalCreateProducts = () => {
             "error"
           );
         } else {
-          Swal.fire(
-            "Guardado!",
-            `El producto ha sido guardado correctamente!`,
-            "success"
-          );
+          Swal.fire({
+            title: "Guardado!",
+            text: `El producto ha sido guardado correctamente!`,
+            icon: "success",
+          }).then(() => {
+            window.location.reload();
+          });
+          $("#modalFormProductos").hide();
           history.push("/products");
         }
       })

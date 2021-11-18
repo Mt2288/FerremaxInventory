@@ -4,8 +4,10 @@ import axios from "axios";
 import { useEffect } from "react";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import { useHistory } from "react-router-dom";
 
-const EditUser = props => {
+const EditUser = (props) => {
+  const history = useHistory();
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -14,15 +16,17 @@ const EditUser = props => {
 
   const fetchUsers = () => {
     axios
-      .get("https://backend-ferremax.herokuapp.com/api/usuarios/" + props.match.params.id)
-      .then((res) =>{
+      .get(
+        "https://backend-ferremax.herokuapp.com/api/usuarios/" +
+          props.match.params.id
+      )
+      .then((res) => {
         setUser(res.data);
         console.log(user);
       })
       .catch((error) => {
         console.log(error);
-      });   
-      
+      });
   };
   const submit = (e) => {
     // data to send the api via POST method
@@ -58,20 +62,21 @@ const EditUser = props => {
         }
       })
       .catch(() => this.error());
-      e.preventDefault();
-      Swal.fire({
-        text: "Modificado correctamente",
-        icon: "success",
-      });
-    
-  };  
+    e.preventDefault();
+    Swal.fire({
+      text: "Modificado correctamente",
+      icon: "success",
+    }).then(() => {
+      history.push("/users");
+    });
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
     // console.log(event.target.value)
   };
-  
+
   return (
     <div id="wrapper">
       {/* <!-- Sidebar --> */}
