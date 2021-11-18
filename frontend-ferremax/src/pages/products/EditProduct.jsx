@@ -4,8 +4,10 @@ import axios from "axios";
 import { useEffect } from "react";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import { useHistory } from "react-router-dom";
 
 const EditProduct = (props) => {
+  const history = useHistory();
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -63,6 +65,8 @@ const EditProduct = (props) => {
     Swal.fire({
       text: "Modificado correctamente",
       icon: "success",
+    }).then(() => {
+      history.push("/products");
     });
   };
 
